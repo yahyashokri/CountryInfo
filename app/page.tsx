@@ -24,8 +24,8 @@ export default function HomePage() {
   return (
       <main className="p-6 md:p-10 bg-gray-200 dark:bg-gray-900 min-h-screen">
         {/* header section */}
-        <ThemeSwitcher />
         <div className="z-10 fixed left-0 right-0 top-0 h-64 lg:h-40 w-screen bg-gradient-to-r from-gray-500 to-gray-300 dark:from-gray-700 dark:to-gray-500 shadow-xl rounded-b-2xl lg:rounded-b-full flex flex-col items-center justify-center p-8">
+        <ThemeSwitcher />
           <h1 className="text-5xl font-extrabold text-center text-white dark:text-gray-100 tracking-wide">
             🌍 Country Explorer
           </h1>
