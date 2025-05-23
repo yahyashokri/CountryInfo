@@ -1,0 +1,24 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "vendor-chunks/@mapbox";
+exports.ids = ["vendor-chunks/@mapbox"];
+exports.modules = {
+
+/***/ "(ssr)/./node_modules/@mapbox/geojson-rewind/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@mapbox/geojson-rewind/index.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+eval("\nmodule.exports = rewind;\n\nfunction rewind(gj, outer) {\n    var type = gj && gj.type, i;\n\n    if (type === 'FeatureCollection') {\n        for (i = 0; i < gj.features.length; i++) rewind(gj.features[i], outer);\n\n    } else if (type === 'GeometryCollection') {\n        for (i = 0; i < gj.geometries.length; i++) rewind(gj.geometries[i], outer);\n\n    } else if (type === 'Feature') {\n        rewind(gj.geometry, outer);\n\n    } else if (type === 'Polygon') {\n        rewindRings(gj.coordinates, outer);\n\n    } else if (type === 'MultiPolygon') {\n        for (i = 0; i < gj.coordinates.length; i++) rewindRings(gj.coordinates[i], outer);\n    }\n\n    return gj;\n}\n\nfunction rewindRings(rings, outer) {\n    if (rings.length === 0) return;\n\n    rewindRing(rings[0], outer);\n    for (var i = 1; i < rings.length; i++) {\n        rewindRing(rings[i], !outer);\n    }\n}\n\nfunction rewindRing(ring, dir) {\n    var area = 0, err = 0;\n    for (var i = 0, len = ring.length, j = len - 1; i < len; j = i++) {\n        var k = (ring[i][0] - ring[j][0]) * (ring[j][1] + ring[i][1]);\n        var m = area + k;\n        err += Math.abs(area) >= Math.abs(k) ? area - m + k : k - m + area;\n        area = m;\n    }\n    if (area + err >= 0 !== !!dir) ring.reverse();\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvQG1hcGJveC9nZW9qc29uLXJld2luZC9pbmRleC5qcyIsIm1hcHBpbmdzIjoiO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBLG9CQUFvQix3QkFBd0I7O0FBRTVDLE1BQU07QUFDTixvQkFBb0IsMEJBQTBCOztBQUU5QyxNQUFNO0FBQ047O0FBRUEsTUFBTTtBQUNOOztBQUVBLE1BQU07QUFDTixvQkFBb0IsMkJBQTJCO0FBQy9DOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBLG9CQUFvQixrQkFBa0I7QUFDdEM7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQSxvREFBb0QsU0FBUztBQUM3RDtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZXMiOlsiQzpcXFVzZXJzXFxZYWh5YVNob2tyaVxcT25lRHJpdmVcXERlc2t0b3BcXEFTUEEgcHJvamVjdFxcYXNwX2Zyb250ZW5kX3Rhc2tfZmluYWxfUFJPXFxub2RlX21vZHVsZXNcXEBtYXBib3hcXGdlb2pzb24tcmV3aW5kXFxpbmRleC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJcbm1vZHVsZS5leHBvcnRzID0gcmV3aW5kO1xuXG5mdW5jdGlvbiByZXdpbmQoZ2osIG91dGVyKSB7XG4gICAgdmFyIHR5cGUgPSBnaiAmJiBnai50eXBlLCBpO1xuXG4gICAgaWYgKHR5cGUgPT09ICdGZWF0dXJlQ29sbGVjdGlvbicpIHtcbiAgICAgICAgZm9yIChpID0gMDsgaSA8IGdqLmZlYXR1cmVzLmxlbmd0aDsgaSsrKSByZXdpbmQoZ2ouZmVhdHVyZXNbaV0sIG91dGVyKTtcblxuICAgIH0gZWxzZSBpZiAodHlwZSA9PT0gJ0dlb21ldHJ5Q29sbGVjdGlvbicpIHtcbiAgICAgICAgZm9yIChpID0gMDsgaSA8IGdqLmdlb21ldHJpZXMubGVuZ3RoOyBpKyspIHJld2luZChnai5nZW9tZXRyaWVzW2ldLCBvdXRlcik7XG5cbiAgICB9IGVsc2UgaWYgKHR5cGUgPT09ICdGZWF0dXJlJykge1xuICAgICAgICByZXdpbmQoZ2ouZ2VvbWV0cnksIG91dGVyKTtcblxuICAgIH0gZWxzZSBpZiAodHlwZSA9PT0gJ1BvbHlnb24nKSB7XG4gICAgICAgIHJld2luZFJpbmdzKGdqLmNvb3JkaW5hdGVzLCBvdXRlcik7XG5cbiAgICB9IGVsc2UgaWYgKHR5cGUgPT09ICdNdWx0aVBvbHlnb24nKSB7XG4gICAgICAgIGZvciAoaSA9IDA7IGkgPCBnai5jb29yZGluYXRlcy5sZW5ndGg7IGkrKykgcmV3aW5kUmluZ3MoZ2ouY29vcmRpbmF0ZXNbaV0sIG91dGVyKTtcbiAgICB9XG5cbiAgICByZXR1cm4gZ2o7XG59XG5cbmZ1bmN0aW9uIHJld2luZFJpbmdzKHJpbmdzLCBvdXRlcikge1xuICAgIGlmIChyaW5ncy5sZW5ndGggPT09IDApIHJldHVybjtcblxuICAgIHJld2luZFJpbmcocmluZ3NbMF0sIG91dGVyKTtcbiAgICBmb3IgKHZhciBpID0gMTsgaSA8IHJpbmdzLmxlbmd0aDsgaSsrKSB7XG4gICAgICAgIHJld2luZFJpbmcocmluZ3NbaV0sICFvdXRlcik7XG4gICAgfVxufVxuXG5mdW5jdGlvbiByZXdpbmRSaW5nKHJpbmcsIGRpcikge1xuICAgIHZhciBhcmVhID0gMCwgZXJyID0gMDtcbiAgICBmb3IgKHZhciBpID0gMCwgbGVuID0gcmluZy5sZW5ndGgsIGogPSBsZW4gLSAxOyBpIDwgbGVuOyBqID0gaSsrKSB7XG4gICAgICAgIHZhciBrID0gKHJpbmdbaV1bMF0gLSByaW5nW2pdWzBdKSAqIChyaW5nW2pdWzFdICsgcmluZ1tpXVsxXSk7XG4gICAgICAgIHZhciBtID0gYXJlYSArIGs7XG4gICAgICAgIGVyciArPSBNYXRoLmFicyhhcmVhKSA+PSBNYXRoLmFicyhrKSA/IGFyZWEgLSBtICsgayA6IGsgLSBtICsgYXJlYTtcbiAgICAgICAgYXJlYSA9IG07XG4gICAgfVxuICAgIGlmIChhcmVhICsgZXJyID49IDAgIT09ICEhZGlyKSByaW5nLnJldmVyc2UoKTtcbn1cbiJdLCJuYW1lcyI6W10sImlnbm9yZUxpc3QiOlswXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/@mapbox/geojson-rewind/index.js\n");
+
+/***/ })
+
+};
+;

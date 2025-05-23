@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ---------- Custom Styles ---------- */
+
+/* Flip card utility classes */
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+/* Smooth fade-in animation for cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-fade {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Global body styling for light and dark modes */
+body {
+  @apply bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 font-sans leading-relaxed antialiased;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.4);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 116, 139, 0.7);
+}
+
+/* Card style on hover - elegant scale and shadow */
+.card-container {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: 1rem;
+  background-color: transparent;
+}
+
+.card-container:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Enhanced input and select fields */
+input[type="text"],
+select {
+  @apply px-4 py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 ease-in-out;
+}
+
+/* Interactive button hover */
+button {
+  @apply transition-transform duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Fix image flipping & improve display */
+img,
+.next-image-wrapper img {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@keyframes load {
+  0%, 60%, 100% {
+    transform: scaleY(1.0);
+  }
+  30% {
+    transform: scaleY(3.0);
+  }
+}
+
+@layer utilities {
+  .animate-load {
+    animation: load 600ms infinite ease-in-out;
+  }
+}
