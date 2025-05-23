@@ -2,10 +2,6 @@
 node_modules/
 vendor/
 
-# Build artifacts
-dist/
-build/
-out/
 
 # Operating system files
 .DS_Store
